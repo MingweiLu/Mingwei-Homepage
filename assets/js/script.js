@@ -157,3 +157,27 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
   });
 }
+// JavaScript to handle popup functionality
+const popupImg = document.getElementById('popup-img');
+const popup = document.getElementById('popup');
+const closeBtn = document.getElementById('close-btn');
+
+// // Show the popup when triggered
+// popupTrigger.addEventListener('click', showPopup);
+function showPopup(imageSrc) {
+  popupImg.src = imageSrc;
+  popup.style.display = 'flex';
+}
+
+// Hide the popup when the close button is clicked
+closeBtn.addEventListener('click', hidePopup);
+
+// Close the popup when clicking on the overlay
+popup.addEventListener('click', hidePopup);
+
+
+
+function hidePopup() {
+  popup.style.display = 'none';
+}
+

@@ -331,9 +331,15 @@ main {
   gap: 15px;
 }
 
-.avatar-box {
+/* .avatar-box {
   background: var(--bg-gradient-onyx);
   border-radius: 20px;
+} */
+
+.avatar-box {
+  overflow: hidden;
+  background: var(--bg-gradient-onyx);
+  border-radius: 50%; /* Make it a circle by setting border-radius to 50% */
 }
 
 .info-content .name {
@@ -1060,6 +1066,31 @@ main {
   z-index: -1;
 }
 
+
+.blog-item-icon-box {
+  --scale: 0.9;
+
+  background: var(--jet);
+  color: var(--orange-yellow-crayola);
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(var(--scale));
+  font-size: 20px;
+  padding: 18px;
+  border-radius: 12px;
+  opacity: 0;
+  z-index: 1;
+  transition: var(--transition-1);
+}
+
+.blog-post-item > a:hover .blog-item-icon-box {
+  --scale: 1;
+  opacity: 1;
+}
+
+.blog-item-icon-box ion-icon { --ionicon-stroke-width: 50px; }
+
 .blog-banner-box {
   width: 100%;
   height: 200px;
@@ -1114,6 +1145,58 @@ main {
   line-height: 1.6;
 }
 
+
+
+/* Add popup styles */
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(66, 66, 66, 0.65);
+  justify-content: center;
+  align-items: center;
+  z-index: 999; /* Set a higher z-index value */
+  backdrop-filter: blur(5px); /* Set the amount of blur */
+}
+
+.popup-content {
+  position: relative;
+  background: rgb(35, 35, 35);
+  padding: 3%;
+  max-width: 90%;
+  height: 96vh;
+  overflow: auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+}
+
+.popup-img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 30px;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  cursor: pointer;
+  z-index: 1000; /* Set an even higher z-index value */
+}
+
+/* Add hover styles for the close button */
+.close-btn:hover {
+  color:var(--orange-yellow-crayola);
+}
 
 
 
