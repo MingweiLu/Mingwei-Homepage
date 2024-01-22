@@ -181,3 +181,44 @@ function hidePopup() {
   popup.style.display = 'none';
 }
 
+
+// Show the popup when triggered
+function showHtmlPopup(htmlFile) {
+  // Load content from the specified HTML file
+  fetch(htmlFile)
+    .then(response => response.text('The HTML file is'))
+    .then(htmlContent => {
+      document.getElementById('popup-content-container').innerHTML = htmlContent;
+      popup.style.display = 'flex';
+    });
+}
+
+// Hide the popup when the close button is clicked
+closeBtn.addEventListener('click', hideHtmlPopup);
+
+// Close the popup when clicking on the overlay
+popup.addEventListener('click', hideHtmlPopup);
+
+function hideHtmlPopup() {
+  popup.style.display = 'none';
+}
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  const formBtn = document.querySelector('[data-form-btn]');
+  formBtn.addEventListener('click', function () {
+    sendEmail();
+  });
+
+  function sendEmail() {
+    const fullName = document.querySelector('[name="fullname"]').value;
+    const email = document.querySelector('[name="email"]').value;
+    const message = document.querySelector('[name="message"]').value;
+
+    // Construct the mailto link with subject and body
+    const mailtoLink = `mailto:mlu1@ualberta.ca?subject=${encodeURIComponent(`Name: ${fullName} (${email})`)}&body=${encodeURIComponent(message)}`;
+
+    // Open the mailto link in a new tab
+    window.open(mailtoLink, '_blank');
+  }
+});
